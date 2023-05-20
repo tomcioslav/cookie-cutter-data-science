@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "fencing"
+version = "0.1.0"
+description = ""
+authors = ["TJ"]
+packages = [
+    { include = {{ cookiecutter.repo_name }}, from = "src" }
+]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = {{ cookiecutter.python_version }}
+pydantic = "^1.10.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
