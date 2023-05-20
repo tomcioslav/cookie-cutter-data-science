@@ -8,7 +8,7 @@ _A logical, reasonably standardized, but flexible project structure for doing an
 
 ### Requirements to use the cookiecutter template:
 -----------
- - Python 2.7 or 3.5+
+ - Python 3.5+
  - [Cookiecutter Python package](http://cookiecutter.readthedocs.org/en/latest/installation.html) >= 1.4.0: This can be installed with pip by or conda depending on how you manage your Python packages:
 
 ``` bash
@@ -21,6 +21,13 @@ or
 $ conda config --add channels conda-forge
 $ conda install cookiecutter
 ```
+
+ - [github cli](https://cli.github.com/manual/installation) In order to create a github repo, after installing gh you will need to run
+ ```
+ gh auth login
+ ```
+ - poetry
+ - pyenv
 
 
 ### To start a new project, run:

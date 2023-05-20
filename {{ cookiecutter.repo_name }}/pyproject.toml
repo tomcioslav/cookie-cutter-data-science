@@ -11,6 +11,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = {{ cookiecutter.python_version }}
 pydantic = "^1.10.7"
+jupyter = "^1.0.0"
 
 
 [build-system]
