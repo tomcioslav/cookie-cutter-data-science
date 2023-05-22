@@ -4,12 +4,12 @@ version = "0.1.0"
 description = ""
 authors = ["TJ"]
 packages = [
-    { include = {{ cookiecutter.repo_name }}, from = "src" }
+    { include = "{{ cookiecutter.repo_name }}", from = "src" }
 ]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = {{ cookiecutter.python_version }}
+python = "{{ cookiecutter.python_version }}"
 pydantic = "^1.10.7"
 jupyter = "^1.0.0"
 

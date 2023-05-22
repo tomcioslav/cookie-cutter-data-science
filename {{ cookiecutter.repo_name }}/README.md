@@ -3,6 +3,19 @@
 
 {{cookiecutter.description}}
 
+### Getting started
+-----------
+ - In order to init the repository please install [github cli](https://cli.github.com/manual/installation) and authenticate via
+
+ ```
+ gh auth login
+ ```
+and then run
+``` bash
+$ make git-init
+```
+command. This will create a new repository named {{cookiecutter.project_name}} in your github account.
+
 Project Organization
 ------------
 
