@@ -15,3 +15,5 @@ system_settings = SystemSettings()
 class Paths(BaseSettings):
     BASE = Path(os.getcwd())
     DATA = BASE / "data"
+
+paths = Paths()
