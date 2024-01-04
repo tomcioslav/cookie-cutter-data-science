@@ -5,7 +5,4 @@
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "python.formatting.provider": "none",
-    "terminal.integrated.env.linux": {
-        "VIRTUAL_ENV": "{{ cookiecutter.PYENV_ROOT }}/versions/{{ cookiecutter.python_version }}/envs/{{ cookiecutter.project_name }}"
-    },
 }

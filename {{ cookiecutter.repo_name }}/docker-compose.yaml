@@ -1,0 +1,5 @@
+services:
+  {{ cookiecutter.repo_name }}:
+    build: .
+    volumes:
+      - .:/{{ cookiecutter.repo_name }}
