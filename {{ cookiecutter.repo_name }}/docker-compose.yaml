@@ -1,5 +1,9 @@
 services:
   {{ cookiecutter.repo_name }}:
-    build: .
+    build: 
+      context: .
+      args:
+        USER_ID: 1000
+        GROUP_ID: 1000
     volumes:
       - .:/{{ cookiecutter.repo_name }}
