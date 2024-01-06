@@ -12,6 +12,7 @@ WORKDIR /{{ cookiecutter.repo_name }}
 
 # Copy the pyproject.toml and other important files into the image
 COPY README.md pyproject.toml  /{{ cookiecutter.repo_name }}/
+COPY models/  /{{ cookiecutter.repo_name }}/models/
 COPY src/{{ cookiecutter.repo_name }}/  /{{ cookiecutter.repo_name }}/src/{{ cookiecutter.repo_name }}/
 
 # Install dependencies using Poetry

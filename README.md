@@ -36,7 +36,7 @@ Install the [github cli](https://cli.github.com/manual/installation) and log in 
 ### To start a new project, run:
 ------------
 
-    cookiecutter -c v1 https://github.com/tomcioslav/cookiecutter-data-science
+    cookiecutter https://github.com/tomcioslav/cookiecutter-data-science
 
 
 ### The resulting directory structure
@@ -58,6 +58,13 @@ The directory structure of your new project looks like this:
     │   ├── __init__.py    <- Makes src a Python module
     │   │
     │   ├── config.py      <- A file with basic path configuration
-
+    │
+    ├── .devcontainer      <- Devcontainer configuration
+    │   ├── devcontainer.json
+    │   ├── docker-compose.yml
+    │   ├── Dockerfile
+    │
+    ├── Dockerfile         <- Clean Dockerfile for the project with just the dependencies
+    ├── docker-compose.yml <- Docker compose file for the project
 ```
 
