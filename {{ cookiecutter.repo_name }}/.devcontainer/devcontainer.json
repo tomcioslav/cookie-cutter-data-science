@@ -1,7 +1,6 @@
 {
 	"name": "Existing Docker Compose (Extend)",
 	"dockerComposeFile": [
-		"../docker-compose.yaml",
 		"docker-compose.yaml"
 	],
 	"service": "{{ cookiecutter.repo_name }}",

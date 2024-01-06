@@ -1,9 +1,10 @@
-# Cookiecutter Data Science
+# Cookiecutter Data Science with Devcontainer for VSCode
 
-_A logical, reasonably standardized, but flexible project structure for doing and sharing data science work._
+_This is a slightly modified version of [Cookiecutter Data Science](https://github.com/drivendata/cookiecutter-data-science) template that uses some additional features like devcontainers and [GitHub CLI](https://cli.github.com/). I also used some code from [VSCode devcontainer with zsh, oh-my-zsh and agnoster theme](https://medium.com/@jamiekt/vscode-devcontainer-with-zsh-oh-my-zsh-and-agnoster-theme-8adf884ad9f6)._
 
+On top of that, I added some basic configuration for [pre-commit](https://pre-commit.com/), oh-my-zsh and other tools that I use on a daily basis. Feel free to modify it to your needs.
 
-#### [Project homepage](http://drivendata.github.io/cookiecutter-data-science/)
+#### [Project homepage](https://github.com/tomcioslav/cookiecutter-data-science)
 
 
 ### Requirements to use the cookiecutter template:
@@ -21,31 +22,21 @@ or
 $ conda config --add channels conda-forge
 $ conda install cookiecutter
 ```
-
- - [github cli](https://cli.github.com/manual/installation) In order to create a github repo, after installing gh you will need to run
+### Requirements to use the github cli feature:
+-----------
+Install the [github cli](https://cli.github.com/manual/installation) and log in to your github account via
  ```
  gh auth login
  ```
- - poetry
- - pyenv
+ If you want to use this feature, you will need to log to Github account using SSH key. The devcontainer shares your local .ssh directory (the /.devcontainer/docker-compose.yaml), so that you can push changes directly from the container. If you decide not to use this feature, the local git repo will still be created, but you will need to manually create a repo on Github and push the local repo to it.
+
+ - [github cli](https://cli.github.com/manual/installation) In order to create a github repo, after installing gh you will need to run
 
 
 ### To start a new project, run:
 ------------
 
-    cookiecutter -c v1 https://github.com/drivendata/cookiecutter-data-science
-
-
-[![asciicast](https://asciinema.org/a/244658.svg)](https://asciinema.org/a/244658)
-
-### New version of Cookiecutter Data Science
-------------
-Cookiecutter data science is moving to v2 soon, which will entail using
-the command `ccds ...` rather than `cookiecutter ...`. The cookiecutter command
-will continue to work, and this version of the template will still be available.
-To use the legacy template, you will need to explicitly use `-c v1` to select it.
-Please update any scripts/automation you have to append the `-c v1` option (as above),
-which is available now.
+    cookiecutter -c v1 https://github.com/tomcioslav/cookiecutter-data-science
 
 
 ### The resulting directory structure
@@ -56,34 +47,17 @@ The directory structure of your new project looks like this:
 ```
 
     ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
+    │
     ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
     │
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── src                <- Source code for use in this project.
+    ├── notebooks          <- Jupyter notebooks.
+    ├── src/{{ cookiecutter.repo_name }}              <- Source code for use in this project.
     │   ├── __init__.py    <- Makes src a Python module
     │   │
     │   ├── config.py      <- A file with basic path configuration
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
+
 ```
-
-### Installing development requirements
-------------
-
-    pip install -r requirements.txt
 

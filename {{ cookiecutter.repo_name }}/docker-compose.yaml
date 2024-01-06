@@ -1,9 +1,5 @@
 services:
-  {{ cookiecutter.repo_name }}:
+  app:
     build: 
       context: .
-      args:
-        USER_ID: 1000
-        GROUP_ID: 1000
-    volumes:
-      - .:/{{ cookiecutter.repo_name }}
+    command: /bin/sh -c "while sleep 1000; do :; done" 
