@@ -32,6 +32,20 @@ Install the [github cli](https://cli.github.com/manual/installation) and log in 
 
  - [github cli](https://cli.github.com/manual/installation) In order to create a github repo, after installing gh you will need to run
 
+### Requirements to use the gpu support feature:
+-----------
+First you need to have nvidia docker installed. You can follow the instructions: 
+```
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
+sudo apt-get update
+sudo apt-get install -y nvidia-docker2
+sudo systemctl restart docker
+```
+Then you can adjust the .devcontainer/docker-compose.yaml file to use the gpu support. 
+```
 
 ### To start a new project, run:
 ------------
