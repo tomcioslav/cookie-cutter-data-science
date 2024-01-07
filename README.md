@@ -30,10 +30,9 @@ Install the [github cli](https://cli.github.com/manual/installation) and log in 
  ```
  If you want to use this feature, you will need to log to Github account using SSH key. The devcontainer shares your local .ssh directory (the /.devcontainer/docker-compose.yaml), so that you can push changes directly from the container. If you decide not to use this feature, the local git repo will still be created, but you will need to manually create a repo on Github and push the local repo to it.
 
- - [github cli](https://cli.github.com/manual/installation) In order to create a github repo, after installing gh you will need to run
-
 ### Requirements to use the gpu support feature:
 -----------
+I use nvidia/cuda:11.0.3-base-ubuntu20.04 as a base image for the devcontainer.
 First you need to have nvidia docker installed. You can follow the instructions: 
 ```
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
