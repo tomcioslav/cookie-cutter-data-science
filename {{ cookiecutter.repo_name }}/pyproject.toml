@@ -10,7 +10,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^{{ cookiecutter.python_version }}"
-pydantic = "^1.10.7"
+pydantic-settings = "2.1.0"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.3.2"
