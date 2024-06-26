@@ -4,6 +4,8 @@ _This is a slightly modified version of [Cookiecutter Data Science](https://gith
 
 On top of that, I added some basic configuration for [pre-commit](https://pre-commit.com/), oh-my-zsh and other tools that I use on a daily basis. Feel free to modify it to your needs.
 
+For now I tried using python 3.10 and 3.11 and it works fine. With python 3.12 i experienced some issues with the devcontainer, so I would recommend using 3.10 or 3.11.
+
 #### [Project homepage](https://github.com/tomcioslav/cookiecutter-data-science)
 
 

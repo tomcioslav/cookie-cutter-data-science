@@ -1,6 +1,7 @@
 {
     "project_name": "project_name",
     "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+    "python_package_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
     "create_github_repo": "y",
     "use_gpu": "n",
     "author_name": "Your name (or your organization/company/team)",

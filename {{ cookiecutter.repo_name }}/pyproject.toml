@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["TJ"]
 packages = [
-    { include = "{{ cookiecutter.repo_name }}", from = "src" }
+    { include = "{{ cookiecutter.python_package_name }}", from = "src" }
 ]
 readme = "README.md"
 

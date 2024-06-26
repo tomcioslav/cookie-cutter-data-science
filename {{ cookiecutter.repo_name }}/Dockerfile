@@ -12,10 +12,15 @@ WORKDIR /{{ cookiecutter.repo_name }}
 
 # Copy the pyproject.toml and other important files into the image
 COPY README.md pyproject.toml  /{{ cookiecutter.repo_name }}/
-COPY models/  /{{ cookiecutter.repo_name }}/models/
-COPY src/{{ cookiecutter.repo_name }}/  /{{ cookiecutter.repo_name }}/src/{{ cookiecutter.repo_name }}/
 
 # Install dependencies using Poetry
+RUN poetry config virtualenvs.create false \
+    && poetry install --no-interaction --no-ansi --no-root
+
+COPY models/  /{{ cookiecutter.repo_name }}/models/
+COPY src/{{ cookiecutter.python_package_name }}/  /{{ cookiecutter.repo_name }}/src/{{ cookiecutter.python_package_name }}/
+
+# Install custom package using Poetry
 RUN poetry config virtualenvs.create false \
     && poetry install --no-interaction --no-ansi
 
