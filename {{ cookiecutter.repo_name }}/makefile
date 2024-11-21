@@ -21,4 +21,4 @@ init-git:
 	git add .
 	git commit -m "Initial commit"
 	git branch -M main
-	run pre-commit install	
+	pre-commit install	
