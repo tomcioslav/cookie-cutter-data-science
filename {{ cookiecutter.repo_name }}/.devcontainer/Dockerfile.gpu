@@ -6,58 +6,36 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV DEBIAN_FRONTEND noninteractive
 
-# Install system dependencies, including Python, Git, ZSH, and wget
+# Install system dependencies
 RUN apt-get update \
-    && apt-get install -y software-properties-common git zsh wget \
+    && apt-get install -y software-properties-common git zsh wget build-essential \
     && add-apt-repository ppa:deadsnakes/ppa \
     && apt-get update \
     && apt-get install -y python{{ cookiecutter.python_version }} \
     && rm -rf /var/lib/apt/lists/*
 
+# Install pip and Poetry
 RUN wget https://bootstrap.pypa.io/get-pip.py \
     && python{{ cookiecutter.python_version }} get-pip.py \
-    && rm get-pip.py
+    && rm get-pip.py 
 
-# Set Python{{ cookiecutter.python_version }} as the default python
-RUN PIP_EXECUTABLE=$(which pip) && \
-    update-alternatives --install /usr/bin/python python /usr/bin/python{{ cookiecutter.python_version }} 1 && \
-    update-alternatives --install /usr/bin/pip pip $PIP_EXECUTABLE 1
-
-# Install Poetry
-RUN pip install --no-cache-dir poetry==1.4.2
-
-# Set the working directory in the Docker image
+# Set the working directory
 WORKDIR /{{ cookiecutter.repo_name }}
 
-# Copy the pyproject.toml and other important files into the image
+# Copy the project files
 COPY . /{{ cookiecutter.repo_name }}/
 
-# Install dependencies using Poetry
-RUN poetry config virtualenvs.create false \
-    && poetry install --no-interaction --no-ansi
-
-# Allow Git to use the safe directory
+# Configure Git
 RUN git config --global --add safe.directory /{{ cookiecutter.repo_name }}
 
-# Create a non-root user to run the application
-ARG USER_ID=1000
-ARG GROUP_ID=1000
+# Install Oh My Zsh
+RUN wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | sh
 
-RUN addgroup --gid $GROUP_ID user \
-    && adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID user
+# Set the default shell to zsh
+SHELL ["/bin/zsh", "-c"]
 
-# Install sudo
-RUN apt-get update && apt-get install -y sudo
+# Expose any necessary ports (if needed)
+EXPOSE 8000
 
-# Add user to the sudoers with no password requirement
-RUN echo "user ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/user \
-    && chmod 0440 /etc/sudoers.d/user
-    
-# Install and setup Oh My Zsh for the non-root user
-RUN wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | su user -c sh
-
-# Switch to non-root user
-USER user
-
-# Set poetry to not create a virtual environment again (needs to be done for the non-root user)
-RUN poetry config virtualenvs.create false
+# Default command
+CMD ["sleep", "infinity"]

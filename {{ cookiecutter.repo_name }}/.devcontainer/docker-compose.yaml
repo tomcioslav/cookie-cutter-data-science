@@ -3,28 +3,16 @@ services:
   {{ cookiecutter.repo_name }}:
     build:
       context: ..
-      {% if cookiecutter.use_gpu == 'y' %}
       dockerfile: ./.devcontainer/Dockerfile.gpu
-      {% else %}
-      dockerfile: ./.devcontainer/Dockerfile.cpu
-      {% endif %}
-      args:
-        USER_ID: 1000
-        GROUP_ID: 1000
-    
-    {% if cookiecutter.use_gpu == 'y' %}
     deploy:
       resources:
         reservations:
           devices:
             - driver: nvidia
               count: 1
-              capabilities: [gpu] 
+              capabilities: [gpu]
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
-    {% endif %}
-
     volumes:
-      - ~/.ssh:/home/user/.ssh
-      - ..:/{{ cookiecutter.repo_name }}:cached   
-    command: /bin/sh -c "while sleep 1000; do :; done"  
+      - ${PWD}:/{{ cookiecutter.repo_name }}:cached
+    command: sleep infinity

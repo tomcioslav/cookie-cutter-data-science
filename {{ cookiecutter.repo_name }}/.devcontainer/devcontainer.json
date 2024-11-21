@@ -1,5 +1,5 @@
 {
-	"name": "Existing Docker Compose (Extend)",
+	"name": "",
 	"dockerComposeFile": [
 		"docker-compose.yaml"
 	],
@@ -22,11 +22,11 @@
 			"settings": {
 				"editor.tabSize": 4,
 				"terminal.integrated.defaultProfile.linux": "zsh",
-                		"python.formatting.provider": "black",
-                		"python.formatting.blackArgs": [
-                   			"--line-length",
-                    			"88"
-                		],
+				"python.formatting.provider": "black",
+				"python.formatting.blackArgs": [
+					"--line-length",
+					"88"
+				],
 				"terminal.integrated.profiles.linux": {
 					"bash": {
 						"path": "bash",
@@ -49,5 +49,6 @@
 				}
 			}
 		}
-	}
+	},
+	"postCreateCommand": "make setup"
 }
